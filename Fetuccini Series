@@ -1,0 +1,53 @@
+#include <cstdlib>
+#include <iostream>
+// calcular a série de Fetuccini até o termo digitado.
+// A série é: 
+     //Se o termo for par, deve-se subtrair o segundo termo do primeiro termo.
+     //Se o termo for impar, deve-se somar o primeiro termo com o segundo termo.
+     //O usuário deverá digitar os 2 primeiros da série.
+using namespace std;
+
+int main(int argc, char *argv[])
+{
+    float prim=0, seg=0, atual=0, soma=0;
+    int  termo=0, cont=0;
+      
+    while (termo<=3) // O TERMO DEVE SER MAIOR DO QUE 3
+    {
+          cout << "ENTRE COM O TERMO DE FETUCCINI:\t";
+          cin >> termo;
+    }
+    cout << "ENTRE COM O PRIMEIRO TERMO DA SERIE:\t";
+    cin >> prim;
+    cout << "ENTRE COM O SEGUNDO TERMO DA SERIE:\t";
+    cin >> seg;   
+    if ((termo%2)==0) // COM BASE NO TERMO DIGITADO, SERÁ FEITA UMA SOMA(se Impar) OU SUBTRAÇÃO(se Par)
+    {
+        cout << "O TERMO IMPUTADO EH PAR (SUBTRACAO)";
+        while (cont<termo)
+        {
+            atual= (seg) - (prim); // DEVE SER SUBTRAIDO O ULTIMO TERMO DO PENULTIMO TERMO
+            prim=seg;
+            seg=atual;
+            soma=atual+atual;
+            cont++;
+            cout << "\t" << atual;
+        }
+    }
+    else 
+    {
+         cout << "O TERMO DA SERIE EH IMPAR (ADICAO)";
+         while (cont<termo)
+         {
+            atual= (seg) + (seg); // PARA A SOMA A ORDEM NÃO ALTERA O RESULTADO
+            prim=seg;
+            seg=atual;
+            soma=atual+atual;
+            cont++;
+            cout << "\t" << atual;
+         }  
+    }
+    cout << "\n\nA SOMA DOS TERMOS, ATE O TERMO:\t\t" << termo << "\tEH\t" << soma <<"\n\n";        
+    system("PAUSE");
+    return EXIT_SUCCESS;
+}
