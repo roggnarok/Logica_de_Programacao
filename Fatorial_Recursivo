@@ -1,0 +1,27 @@
+#include <cstdlib>
+#include <iostream>
+using namespace std;
+int fatorial(int n);//prototipo da função fatorial, função recebe um n(inteiro) e o retorno é inteiro.
+int consistir();     //prototipo da função consistir            
+int main(int argc, char *argv[]){
+    int valor=consistir();       //Declaração da variavel "valor" e já 
+    cout << "\nO fatorial de: " << valor<< " eh:\t" << fatorial(valor) << "\n\n\n";
+    system("PAUSE");
+    return EXIT_SUCCESS;
+}
+
+int fatorial(int n){                  //função recursiva para fatorial
+       if (n==0)                      //Condição de Parada, fat(0)=1
+          return 1;
+       else
+           return (n*fatorial(n-1));  //Recursividade             
+}
+
+int consistir(){         
+    int num;
+        do{
+        cout << "DIGITE UM VALOR PARA FAZER O FATORIAL:\t";
+        cin >> num;
+        }while(num<0 || num>12); //só serão validos valores de 0 a 12, pq DEUS quis assim.
+    return num;
+}
