@@ -1,0 +1,27 @@
+#include <cstdlib>
+#include <iostream>
+using namespace std;
+int somatoria(int n);//prototipo da função somatoria, função recebe um n(inteiro) e o retorno é inteiro.
+int consistir();     //prototipo da função consistir            
+int main(int argc, char *argv[]){
+    int valor=0;
+    valor=consistir();
+    cout << "\nA somatoria de 0 ate: " << valor<< " eh:\t" << somatoria(valor) << "\n\n\n";
+    system("PAUSE");
+    return EXIT_SUCCESS;
+}
+int somatoria(int n){                   //função recursiva para somatória
+       if (n==1)                       //Condição de Parada
+          return 1;
+       else
+           return (n+somatoria(n-1));  //Recursividade             
+}
+
+int consistir(){         //verifica se o valor digitado é menor do que 1
+    int num;
+        do{
+        cout << "DIGITE UM VALOR PARA FAZER A SOMA SUCESSIVA:\t";
+        cin >> num;
+        }while(num<1);
+    return num;
+}
