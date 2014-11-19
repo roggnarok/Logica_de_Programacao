@@ -1,0 +1,51 @@
+// criar duas matrizes (matA e matB) e um vetorA. 
+//Inserir valores na matrizA, gravar na matrizB a transposta da MatrizA.
+//Fazer a soma das colunas da matrizB e gravar no vetorA.
+//Mostrar a MatrizA, a matrizB e o VetorA
+#include <cstdlib>
+#include <iostream>
+using namespace std;
+int main(int argc, char *argv[]){
+    int vetorA[5];
+    int matA[5][5];
+    int matB[5][5];
+    int i,j;
+    for (i=0; i<5; i++){ // limpa a memoria do vetor, atribuindo 0(zero) a todos os indices.
+        vetorA[i]=0;     // Esse vetor receberá a soma das colunas da matriz B
+    }
+    for (i=0; i<5; i++){
+        for (j=0; j<5; j++){
+            matA[i][j] = (rand()%2); //Grava na matrizA numeros aleatorios de 0 a 4
+        }               
+    }
+    for (i=0; i<5; i++){             // grava na matrizB a transposta da matrizA
+        for (j=0; j<5; j++){
+            matB[i][j] = matA[j][i];
+        }               
+    }
+    for (i=0; i<5; i++){             // Grava a somatoria das colunas de B(j) no vetor A
+        for (j=0; j<5; j++){
+            vetorA[i]=vetorA[i]+matB[j][i];
+        }               
+    }
+    cout << "\nMATRIZ A";            //exibe a matriz A
+    for (i=0; i<5; i++){
+        cout << "\n";
+        for (j=0; j<5; j++){
+            cout << matA[i][j]<<"\  ";
+        }               
+    }
+    cout << "\n\nMATRIZ B";         //exibe a matriz B
+    for (i=0; i<5; i++){
+        cout << "\n";
+        for (j=0; j<5; j++){
+            cout << matB[i][j]<<"\  ";
+        }               
+    }
+    cout << "\n\nVETOR A\n";         //exibe vetor A
+    for (i=0; i<5; i++){
+              cout << vetorA[i]<<"\  ";
+    }        
+    system("PAUSE");
+    return EXIT_SUCCESS;
+}
