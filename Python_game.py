@@ -1,6 +1,6 @@
 #JOGO ONDE VOCÊ TEM QUE ACERTAR O NUMERO SORTEADO PELO COMPUTADOR.
 from random import randint
-print ("Welcome, tente adivinhar o numero de 0 a 1000")
+print ("Bem Vindo, tente adivinhar o numero de 0 a 1000")
 sorteado=randint(1,1000)
 chute=0
 while chute!= sorteado:
